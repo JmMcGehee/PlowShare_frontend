@@ -1,6 +1,10 @@
 import React from 'react';
 import { BASE_URL } from './constants'
 import './App.css';
+import { Nav } from './components/Nav'
+import { Index } from './components/Index'
+import { Show } from './components/Show'
+import { New } from './components/New'
 
 
 class App extends React.Component {
@@ -19,7 +23,10 @@ class App extends React.Component {
   render () {
     return (
       <>
-        <h1>There's stuff here, I swear.</h1>
+        <Nav />
+        <Index />
+        <Show />
+        <New />
       </>
     )
   }
