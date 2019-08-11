@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/PlowShare_frontend/precache-manifest.347269bd07d9034f5f052e0424beff36.js"
+  "/PlowShare_frontend/precache-manifest.436419afd8fa7cc4e2b8e1a9460aed86.js"
 );
 
 self.addEventListener('message', (event) => {
