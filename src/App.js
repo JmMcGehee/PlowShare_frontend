@@ -14,11 +14,11 @@ class App extends React.Component {
     return (
       <>
         <Nav />
+        <Show />
+        <New />
         <Index
           getListings={this.getListings}
         />
-        <Show />
-        <New />
       </>
     )
   }
