@@ -1,5 +1,4 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
 import { Nav } from './components/Nav'
 import { Index } from './components/Index'
 import { Show } from './components/Show'
