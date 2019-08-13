@@ -35,6 +35,93 @@ class Calendar extends Component {
     let firstDay = moment(dateContext).startOf('month').format('d')
     return firstDay
   }
+  setMonth = (month) => {
+    let monthNumber = this.months.indexOf(month)
+    let dateContext = Object.assign({}, this.state.dateContext)
+    dateContext = moment(dateContext).set("month", monthNumber)
+    this.setState({
+      dateContext: dateContext,
+    })
+  }
+  onSelectChange = (event, data) => {
+    this.setMonth(data)
+    this.props.onMonthChange && this.props.onMonthChange()
+  }
+  SelectList = (props) => {
+    let popup = props.data.map((data) => {
+      return (
+        <div key={data}>
+          <a
+            href="#"
+            onClick={(event) => {
+              this.onSelectChange(event, data)
+            }}
+          >
+            {data}
+          </a>
+        </div>
+      )
+    })
+    return (
+      <div className="month-popup">
+        {popup}
+      </div>
+    )
+  }
+  onChangeMonth = (event, month) => {
+    this.setState({
+      showMonthPopup: !this.state.showMonthPopup,
+    })
+  }
+  MonthNav = () => {
+    return (
+      <span
+        className="label-month"
+        onClick={(event) => {
+          this.onChangeMonth(event, this.month())
+        }}
+      >
+        {this.month()}
+        {this.state.showMonthPopup &&
+        <this.SelectList data={this.months} />
+        }
+      </span>
+    )
+  }
+  showYearEditor = () => {
+    this.setState({
+      showYearNav: true
+    })
+  }
+  YearNav = () => {
+    return (
+      this.state.showYearNav ?
+      <input
+        type="number"
+        defaultValue = {this.year()}
+        className="editor-year"
+        ref={(yearInput) => {
+          this.yearInput = yearInput
+        }}
+        onKeyUp={(event) => {
+          this.onKeyUpYear(event)
+        }}
+        onChange={(event) => {
+          this.onYearChange(event)
+        }}
+        placeholder="year"
+      />
+      :
+      <span
+        className="label-year"
+        onDoubleClick={(event) => {
+          this.showYearEditor()
+        }}
+        >
+        {this.year()}
+      </span>
+    )
+  }
 
   render () {
     let weekdays = this.weekdaysShort.map((day) => {
@@ -96,6 +183,11 @@ class Calendar extends Component {
         <table className="calendar">
           <thead>
             <tr className="calendar-header">
+              <td colSpan="5">
+                <this.MonthNav />
+                {" "}
+                <this.YearNav />
+              </td>
             </tr>
           </thead>
           <tbody>

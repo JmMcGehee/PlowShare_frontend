@@ -9,6 +9,8 @@ tr {
 
 .calendar-container {
     border: 2px solid skyblue;
+    width: 350px;
+    margin: 0 auto;
 }
 
 .calendar {
