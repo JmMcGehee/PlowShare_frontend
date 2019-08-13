@@ -13,3 +13,11 @@ npm install --save moment
 [Video Tutorial](https://www.youtube.com/watch?v=9U0uTNfY1UA&list=PLNIn9uF_2Il5xOLikexgi_yuG2f-LjInP)
 
 [Written Tutorial](https://programmingwithmosh.com/react/build-a-react-calendar-component-from-scratch/)
+
+### Technologies used
+
+React Router
+
+```
+npm i react-router-dom
+```

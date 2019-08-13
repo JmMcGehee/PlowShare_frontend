@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import { Nav } from './components/Nav'
 import { Index } from './components/Index'
 import { Show } from './components/Show'
@@ -11,14 +12,16 @@ class App extends React.Component {
   }
   render () {
     return (
-      <>
-        <Nav />
-        <Show />
-        <New />
-        <Index
-          getListings={this.getListings}
-        />
-      </>
+      <Router>
+        <div className="container">
+          <Nav />
+          <Route path="/" exact component={Index}
+            getListings={this.getListings}
+          />
+          <Route path="/show" component={Show} />
+          <Route path="/new" component={New} />
+        </div>
+      </Router>
     )
   }
 }
