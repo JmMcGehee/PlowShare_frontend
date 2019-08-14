@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "42b71b0e888bfe36fcdd13e24381a9d9",
+    "revision": "c26cd4ba88a3b5f7819dc4edf0868081",
     "url": "/PlowShare_frontend/index.html"
   },
   {
-    "revision": "bad869b3bdfd3fddb698",
+    "revision": "9b8dd250a09b12ac6a5d",
     "url": "/PlowShare_frontend/static/css/main.901f0dab.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/PlowShare_frontend/static/js/2.113b0800.chunk.js"
   },
   {
-    "revision": "bad869b3bdfd3fddb698",
-    "url": "/PlowShare_frontend/static/js/main.238451d0.chunk.js"
+    "revision": "9b8dd250a09b12ac6a5d",
+    "url": "/PlowShare_frontend/static/js/main.46e68211.chunk.js"
   },
   {
     "revision": "6ba6032843ae8724c29a",
