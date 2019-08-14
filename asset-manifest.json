@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/PlowShare_frontend/static/css/main.99e7c98d.chunk.css",
-    "main.js": "/PlowShare_frontend/static/js/main.fba81dc7.chunk.js",
-    "main.js.map": "/PlowShare_frontend/static/js/main.fba81dc7.chunk.js.map",
+    "main.css": "/PlowShare_frontend/static/css/main.901f0dab.chunk.css",
+    "main.js": "/PlowShare_frontend/static/js/main.238451d0.chunk.js",
+    "main.js.map": "/PlowShare_frontend/static/js/main.238451d0.chunk.js.map",
     "runtime~main.js": "/PlowShare_frontend/static/js/runtime~main.7f4b9ed4.js",
     "runtime~main.js.map": "/PlowShare_frontend/static/js/runtime~main.7f4b9ed4.js.map",
-    "static/js/2.6ee2d6af.chunk.js": "/PlowShare_frontend/static/js/2.6ee2d6af.chunk.js",
-    "static/js/2.6ee2d6af.chunk.js.map": "/PlowShare_frontend/static/js/2.6ee2d6af.chunk.js.map",
+    "static/js/2.113b0800.chunk.js": "/PlowShare_frontend/static/js/2.113b0800.chunk.js",
+    "static/js/2.113b0800.chunk.js.map": "/PlowShare_frontend/static/js/2.113b0800.chunk.js.map",
     "index.html": "/PlowShare_frontend/index.html",
-    "precache-manifest.2176ca46ac94e1db4927765873eb6afe.js": "/PlowShare_frontend/precache-manifest.2176ca46ac94e1db4927765873eb6afe.js",
+    "precache-manifest.6dd959fbb3f00dc2d8f6006623e38d4c.js": "/PlowShare_frontend/precache-manifest.6dd959fbb3f00dc2d8f6006623e38d4c.js",
     "service-worker.js": "/PlowShare_frontend/service-worker.js",
-    "static/css/main.99e7c98d.chunk.css.map": "/PlowShare_frontend/static/css/main.99e7c98d.chunk.css.map"
+    "static/css/main.901f0dab.chunk.css.map": "/PlowShare_frontend/static/css/main.901f0dab.chunk.css.map"
   }
 }
