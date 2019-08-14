@@ -8,8 +8,6 @@ class Listing extends Component {
     listing: {}
   }
   toggleShow = () => {
-    this.findListing(this.props.listingId)
-    //This is coming back as undefined. 
     this.setState({
       showListing: !this.state.showListing
     })
@@ -17,7 +15,6 @@ class Listing extends Component {
   findListing = (id) => {
     const copyListings = [...this.props.listings]
     const findIndex = this.props.listings.findIndex(listing => listing.id === id)
-    console.log(copyListings[findIndex])
     this.setState({
       listing: copyListings[findIndex]
     })
@@ -31,17 +28,20 @@ class Listing extends Component {
       {
         this.state.showListing ?
         <div>
+          <h3>{this.state.listing.title}</h3>
+          <img src={this.state.listing.img} alt={this.state.listing.title}/>
+          <h5>Description</h5>
+          <p>{this.state.listing.year} {this.state.listing.make} {this.state.listing.model}</p>
+          <h4>Rate</h4><p>${this.state.listing.rate}/day</p>
           <Show />
           <button onClick={this.toggleShow}>Close</button>
           <Link to="/edit">Edit Listing</Link>
         </div>
         :
         <div>
-          <h3>{this.props.title}</h3>
-          <img src={this.props.img} alt={this.props.title}/>
-          <h5>Description</h5>
-          <p>{this.props.year} {this.props.make} {this.props.model}</p>
-          <h4>Rate</h4><p>${this.props.rate}/day</p>
+          <h3>{this.props.listing.title}</h3>
+          <img src={this.props.listing.img} alt={this.props.listing.title}/>
+          <h4>Rate</h4><p>${this.props.listing.rate}/day</p>
           <button onClick={this.toggleShow}>See Full Listing</button>
         </div>
       }

@@ -11,8 +11,8 @@ class Nav extends Component {
           <Link to="/">Home</Link>
           <Link to="/index">Listings</Link>
           <Link to="/new">New</Link>
-          <Link>| Log in |</Link>
-          <Link>| Sign up |</Link>
+          <button>| Log in |</button>
+          <button>| Sign up |</button>
         </nav>
         <h1>PlowShare</h1>
         </header>

@@ -1,5 +1,5 @@
 * {
-  border: 1px solid #000;
+  border: 1px solid grey;
 }
 
 body {
@@ -17,9 +17,9 @@ code {
 }
 
 .home {
-
   display: flex;
   justify-content: space-around;
+  align-content: stretch;
 }
 
 .nav {
@@ -33,4 +33,9 @@ code {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.search-form {
+  display: flex;
+  justify-content:center;
 }
