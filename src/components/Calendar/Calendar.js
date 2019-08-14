@@ -43,6 +43,23 @@ class Calendar extends Component {
       dateContext: dateContext,
     })
   }
+
+  nextMonth = () => {
+      let dateContext = Object.assign({}, this.state.dateContext);
+      dateContext = moment(dateContext).add(1, "month");
+      this.setState({
+          dateContext: dateContext
+      });
+      this.props.onNextMonth && this.props.onNextMonth();
+  }
+  prevMonth = () => {
+      let dateContext = Object.assign({}, this.state.dateContext);
+      dateContext = moment(dateContext).subtract(1, "month");
+      this.setState({
+          dateContext: dateContext
+      });
+      this.props.onPrevMonth && this.props.onPrevMonth();
+  }
   onSelectChange = (event, data) => {
     this.setMonth(data)
     this.props.onMonthChange && this.props.onMonthChange()
@@ -93,6 +110,25 @@ class Calendar extends Component {
       showYearNav: true
     })
   }
+  setYear = (year) => {
+    let dateContext = Object.assign({}, this.state.dateContext)
+    dateContext = moment(dateContext).set("year", year)
+    this.setState({
+      dateContext: dateContext
+    })
+  }
+  onYearChange = (event) => {
+    this.setYear(event.target.value)
+    this.props.onYearChange && this.props.onYearChange(event, event.target.value)
+  }
+  onKeyUpYear = (event) => {
+    if (event.which === 13 || event.which === 27 ) {
+      this.setYear(event.target.value)
+      this.setState({
+        showYearNav: false
+      })
+    }
+  }
   YearNav = () => {
     return (
       this.state.showYearNav ?
@@ -122,7 +158,14 @@ class Calendar extends Component {
       </span>
     )
   }
-
+  onDayClick = (e, day) => {
+      this.setState({
+          selectedDay: day
+      }, () => {
+          console.log("SELECTED DAY: ", this.state.selectedDay);
+      })
+      this.props.onDayClick && this.props.onDayClick(e, day);
+  }
   render () {
     let weekdays = this.weekdaysShort.map((day) => {
       return (
@@ -146,7 +189,9 @@ class Calendar extends Component {
       let className = (d == this.currentDay() ? "day current-day" : "day")
       daysInMonth.push(
         <td key={d} className={className}>
-          <span>{d}</span>
+          <span onClick={(event) => {
+            this.onDayClick(event, d)
+          }}>{d}</span>
         </td>
       )
     }
@@ -187,6 +232,21 @@ class Calendar extends Component {
                 <this.MonthNav />
                 {" "}
                 <this.YearNav />
+              </td>
+              <td colSpan="2" >
+                <i className="prev fa fa-fw fa-chevron-left"
+                  onClick={(event) => {
+                    {this.prevMonth()}
+                  }}>
+                   prev
+                </i>
+                {"  "}
+                <i className="prev fa fa-fw fa-chevron-right"
+                  onClick={(event) => {
+                    {this.nextMonth()}
+                  }}>
+                   next
+                </i>
               </td>
             </tr>
           </thead>
