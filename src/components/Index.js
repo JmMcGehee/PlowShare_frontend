@@ -14,12 +14,13 @@ class Index extends Component {
         {
           this.props.listings.map(
             equipment =>
-            <div key={equipment.id}>
+            <div key={equipment.id*5}>
             <Listing
               listing={equipment}
               listings={this.props.listings}
               listingId={equipment.id}
               title={equipment.title}
+              findListing={this.props.findListing}
             />
             </div>
           )

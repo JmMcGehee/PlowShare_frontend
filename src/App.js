@@ -10,7 +10,8 @@ import { BASE_URL } from './constants'
 
 class App extends React.Component {
   state = {
-    listings : []
+    listings : [],
+    listing: {}
   }
   componentDidMount () {
     this.getListings()
@@ -22,6 +23,13 @@ class App extends React.Component {
       listings: json,
     }))
     .catch(error => console.log(error))
+  }
+  findListing = (id) => {
+    const copyListings = [...this.state.listings]
+    const findIndex = this.state.listings.findIndex(listing => listing.id === id)
+    this.setState({
+      listing: copyListings[findIndex]
+    })
   }
   render () {
     return (
@@ -35,14 +43,24 @@ class App extends React.Component {
               <Index
                 {...props}
                 listings={this.state.listings}
+                findListing={this.findListing}
+                listing={this.state.listing}
+              />
+            }
+          />
+          <Route
+            path="/edit"
+            render={(props) =>
+              <Edit
+                {...props}
+                findListing={this.findListing}
+                listing={this.state.listing}
+                getListings={this.getListings}
               />
             }
           />
           <Route
             path="/new" component={New}
-          />
-          <Route
-            path="/edit" component={Edit}
           />
         </div>
       </Router>

@@ -8,19 +8,15 @@ class Listing extends Component {
     listing: {}
   }
   toggleShow = () => {
+    this.props.findListing(this.props.listingId)
     this.setState({
       showListing: !this.state.showListing
     })
   }
-  findListing = (id) => {
-    const copyListings = [...this.props.listings]
-    const findIndex = this.props.listings.findIndex(listing => listing.id === id)
-    this.setState({
-      listing: copyListings[findIndex]
-    })
-  }
   componentDidMount () {
-    this.findListing(this.props.listingId)
+    this.setState({
+      listing: this.props.listing
+    })
   }
   render () {
     return (
@@ -33,6 +29,7 @@ class Listing extends Component {
           <h5>Description</h5>
           <p>{this.state.listing.year} {this.state.listing.make} {this.state.listing.model}</p>
           <h4>Rate</h4><p>${this.state.listing.rate}/day</p>
+          <h5>Location</h5><p>{this.state.listing.location}</p>
           <Show />
           <button onClick={this.toggleShow}>Close</button>
           <Link to="/edit">Edit Listing</Link>

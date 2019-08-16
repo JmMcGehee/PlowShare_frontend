@@ -9,6 +9,7 @@ class Form extends Component {
     model: '',
     year: 0,
     rate: 0,
+    location: ''
   }
   handleChange = (event) => {
     this.setState({
@@ -23,7 +24,8 @@ class Form extends Component {
       make: this.state.make,
       model: this.state.model,
       year: this.state.year,
-      rate: this.state.rate
+      rate: this.state.rate,
+      location: this.state.location
     }
     console.log(newListing)
     fetch( BASE_URL + '/equipment', {
@@ -77,6 +79,13 @@ class Form extends Component {
             value={this.state.year}
             onChange={this.handleChange}
             id="year"/>
+          <br/>
+          <label htmlFor="location">Location:</label>
+          <input
+            type="textarea"
+            value={this.state.location}
+            onChange={this.handleChange}
+            id="location"/>
           <br/>
           <label htmlFor="rate">Cost per Day:</label>
           <input
