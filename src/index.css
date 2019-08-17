@@ -1,6 +1,6 @@
-* {
+/* * {
   border: 1px solid grey;
-}
+} */
 
 body {
   margin: 0;
@@ -33,6 +33,24 @@ code {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.index-container {
+  max-width: 22%;
+  border: 3px solid rgba(141, 143, 139, .5);
+  border-radius: 5px;
+  margin: .5%;
+  box-shadow: 5px 5px 5px 5px #888888;
+}
+
+.index-image {
+  max-height: 50%;
+  max-width: 100%;
+}
+
+.show-image {
+  max-width: 500px;
+  max-height: 500px;
 }
 
 .search-form {
