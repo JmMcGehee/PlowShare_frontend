@@ -8,7 +8,7 @@ class Nav extends Component {
         <header>
         <h3>Nav Component</h3>
         <nav>
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
           <Link to="/index">Listings</Link>
           <Link to="/new">New</Link>
           <button>| Log in |</button>

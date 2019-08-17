@@ -31,12 +31,41 @@ class App extends React.Component {
       listing: copyListings[findIndex]
     })
   }
+  handleUpdate = (event, updatedListing) => {
+    event.preventDefault()
+    console.log(updatedListing)
+    fetch( BASE_URL + `/equipment/${updatedListing.id}`, {
+      body: JSON.stringify(updatedListing),
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(() => {
+      this.getListings()
+    })
+    .catch(error => console.log(error))
+  }
+  handleDelete = (deletedNotice) => {
+    fetch( BASE_URL + `/equipment/${deletedNotice.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(() => {
+      this.getListings()
+    })
+    .catch(error => console.log(error))
+  }
   render () {
     return (
       <Router>
         <div className="container">
           <Nav />
-          <Route path="/" exact component={Home}/>
+          <Route path="/home" exact component={Home}/>
           <Route
             path="/index"
             render={(props) =>
@@ -56,6 +85,8 @@ class App extends React.Component {
                 findListing={this.findListing}
                 listing={this.state.listing}
                 getListings={this.getListings}
+                handleUpdate={this.handleUpdate}
+                handleDelete={this.handleDelete}
               />
             }
           />

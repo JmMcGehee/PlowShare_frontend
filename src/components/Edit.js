@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { BASE_URL } from '../constants'
 
 class Edit extends Component {
   state = {
@@ -18,7 +17,6 @@ class Edit extends Component {
     })
   }
   handleUpdate = (event) => {
-    event.preventDefault()
     const updatedListing = {
       title: this.state.title,
       img: this.state.img,
@@ -26,32 +24,21 @@ class Edit extends Component {
       model: this.state.model,
       year: this.state.year,
       location: this.state.location,
-      rate: this.state.rate
+      rate: this.state.rate,
+      id: this.state.listing.id
     }
-    console.log(updatedListing)
-    fetch( BASE_URL + `/equipment/${this.state.listing.id}`, {
-      body: JSON.stringify(updatedListing),
-      method: 'PUT',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(() => {
-      this.props.getListings()
-    })
-    .catch(error => console.log(error))
+    this.props.handleUpdate(event, updatedListing)
   }
   componentDidMount () {
     this.setState({
-      listing: this.props.listing,
-      title: this.props.listing.title,
-      img: this.props.listing.img,
-      make: this.props.listing.make,
-      model: this.props.listing.model,
-      year: this.props.listing.year,
-      location: this.props.listing.location,
-      rate: this.props.listing.rate,
+      listing: this.props.listing || '',
+      title: this.props.listing.title || '',
+      img: this.props.listing.img || '',
+      make: this.props.listing.make || '',
+      model: this.props.listing.model || '',
+      year: this.props.listing.year || '',
+      location: this.props.listing.location || '',
+      rate: this.props.listing.rate || '',
     })
   }
   render () {
@@ -97,7 +84,7 @@ class Edit extends Component {
             <br/>
             <label htmlFor="location">Location:</label>
             <input
-              type="textarea"
+              type="text"
               value={this.state.location}
               onChange={this.handleChange}
               id="location"/>
@@ -113,6 +100,11 @@ class Edit extends Component {
               type="submit"
             />
           </form>
+          <button
+            onClick={()=> this.props.handleDelete(this.state.listing)
+            }>
+            Delete this Listing
+          </button>
         </div>
       </>
     )
